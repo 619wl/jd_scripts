@@ -31,6 +31,7 @@ let cookiesArr = [], cookie = '', jdPetShareArr = [], isBox = false, notify, new
 //下面给出两个账号的填写示例（iOS只支持2个京东账号）
 let shareCodes = [ // IOS本地脚本用户这个列表填入你要助力的好友的shareCode
                    //账号一的好友shareCode,不同好友的shareCode中间用@符号隔开
+<<<<<<< HEAD
  'MTE5MzEwNTEzODAwMDAwMDA1MDU5NDE1Nw==@MTAxNzIxMDc1MTAwMDAwMDA1MjcxMzg5MQ==@MTEyOTEzNzMzMDAwMDAwMDU1MTUzMjg3',
   //账号二的好友shareCode,不同好友的shareCode中间用@符号隔开
   'MTE5MzEwNTEzODAwMDAwMDA1MDU5NDE1Nw==@MTAxNzIxMDc1MTAwMDAwMDA1MjcxMzg5MQ==@MTEyOTEzNzMzMDAwMDAwMDU1MTUzMjg3',
@@ -38,6 +39,11 @@ let shareCodes = [ // IOS本地脚本用户这个列表填入你要助力的好�
   'MTE5MzEwNTEzODAwMDAwMDA1MDU5NDE1Nw==@MTAxNzIxMDc1MTAwMDAwMDA1MjcxMzg5MQ==@MTEyOTEzNzMzMDAwMDAwMDU1MTUzMjg3',
   'MTE5MzEwNTEzODAwMDAwMDA1MDU5NDE1Nw==@MTAxNzIxMDc1MTAwMDAwMDA1MjcxMzg5MQ==@MTEyOTEzNzMzMDAwMDAwMDU1MTUzMjg3',
   'MTE5MzEwNTEzODAwMDAwMDA1MDU5NDE1Nw==@MTAxNzIxMDc1MTAwMDAwMDA1MjcxMzg5MQ==@MTEyOTEzNzMzMDAwMDAwMDU1MTUzMjg3',
+=======
+  'MTAxODcxOTI2NTAwMDAwMDAyNTE5ODU4OQ==@MTEzMzI1MTE4NDAwMDAwMDA1NzY3MDAwOQ==@MTEyNjE4NjQ2MDAwMDAwMDU3NzA1NjMx@MTAxODEyMjkyMDAwMDAwMDM5MzI3ODM1@MTE1NDUyMjEwMDAwMDAwMzUyNDI3Njk=@MTE1NDUyMjEwMDAwMDAwMzgxMjgwNjM=@MTE1NDAxNzYwMDAwMDAwMzk2NjQ2MjE=@MTE1NDQ5MzYwMDAwMDAwMzgwNzQxMTc=@MTAxODc2NTE0NzAwMDAwMDAyMTgwNDcwNw==',
+  //账号二的好友shareCode,不同好友的shareCode中间用@符号隔开
+  'MTAxODcxOTI2NTAwMDAwMDAyNTE5ODU4OQ==@MTEzMzI1MTE4NDAwMDAwMDA1NzY3MDAwOQ==@MTEyNjE4NjQ2MDAwMDAwMDU3NzA1NjMx@MTAxODEyMjkyMDAwMDAwMDM5MzI3ODM1@MTE1NDUyMjEwMDAwMDAwMzUyNDI3Njk=@MTE1NDUyMjEwMDAwMDAwMzgxMjgwNjM=@MTE1NDAxNzYwMDAwMDAwMzk2NjQ2MjE=@MTE1NDQ5MzYwMDAwMDAwMzgwNzQxMTc=@MTAxODc2NTE0NzAwMDAwMDAyMTgwNDcwNw==',
+>>>>>>> upstream/main
 ]
 let message = '', subTitle = '', option = {};
 let jdNotify = false;//是否关闭通知，false打开通知推送，true关闭通知推送
@@ -304,6 +310,7 @@ async function slaveHelp() {
     } else {
       console.log(`助力好友结果: ${response.message}`);
     }
+    await $.wait(2000)
   }
   if (helpPeoples && helpPeoples.length > 0) {
     message += `【您助力的好友】${helpPeoples.substr(0, helpPeoples.length - 1)}\n`;
@@ -322,6 +329,10 @@ async function petSport() {
     if (resultCode == 0) {
       let sportRevardResult = await request('getSportReward');
       console.log(`领取遛狗奖励完成: ${JSON.stringify(sportRevardResult)}`);
+    } else if (resultCode == 1013) {
+      let sportRevardResult = await request('getSportReward', {"version":1});
+      console.log(`领取遛狗奖励完成: ${JSON.stringify(sportRevardResult)}`);
+      if (sportRevardResult.resultCode == 0) resultCode = 0
     }
     times++;
   } while (resultCode == 0 && code == 0)
@@ -456,11 +467,11 @@ async function showMsg() {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({url: ``, timeout: 10000}, (err, resp, data) => {
+    $.get({url: `http://transfer.nz.lu/pet`, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
-          //console.log(`${JSON.stringify(err)}`)
-          //console.log(`${$.name} API请求失败，请检查网路重试`)
+          console.log(JSON.stringify(err))
+          console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (data) {
             console.log(`随机取个${randomCount}码放到您固定的互助码后面(不影响已有固定互助)`)
@@ -611,7 +622,7 @@ function taskUrl(function_id, body = {}) {
   body["channel"] = 'app';
   return {
     url: `${JD_API_HOST}?functionId=${function_id}`,
-    body: `body=${escape(JSON.stringify(body))}&appid=wh5&loginWQBiz=pet-town&clientVersion=9.0.4`,
+    body: `body=${encodeURIComponent(JSON.stringify(body))}&appid=wh5&loginWQBiz=pet-town&clientVersion=9.0.4`,
     headers: {
       'Cookie': cookie,
       'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),

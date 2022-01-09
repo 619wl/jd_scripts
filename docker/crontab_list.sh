@@ -127,8 +127,6 @@
 5 * * * * node /scripts/jd_cfd_loop.js >> /scripts/logs/jd_cfd_loop.log 2>&1
 #宠汪汪偷狗粮
 40 0-21/3 * * * node /scripts/jd_joy_steal.js >> /scripts/logs/jd_joy_steal.log 2>&1
-#京小鸽
-18 4,11 * * * node /scripts/jd_jxg.js >> /scripts/logs/jd_jxg.log 2>&1
 #
 20 6,7 * * * node /scripts/jd_morningSc.js >> /scripts/logs/jd_morningSc.log 2>&1
 #领现金兑换
@@ -165,16 +163,10 @@
 5 2,5,16 * * * node /scripts/jd_connoisseur.js >> /scripts/logs/jd_connoisseur.log 2>&1
 # 京喜财富岛月饼
 5 * * * * node /scripts/jd_cfd_mooncake.js >> /scripts/logs/jd_cfd_mooncake.log 2>&1
-# 小魔方
-31 2,8 * * * node /scripts/jd_mf.js >> /scripts/logs/jd_mf.log 2>&1
-# 魔方
-11 7,19 * * * node /scripts/jd_mofang.js >> /scripts/logs/jd_mofang.log 2>&1
 # 芥么签到
 11 0,9 * * * node /scripts/jd_jmsign.js >> /scripts/logs/jd_jmsign.log 2>&1
 # 芥么赚豪礼
 37 0,11 * * * node /scripts/jd_jmzhl.js >> /scripts/logs/jd_jmzhl.log 2>&1
-# 幸运扭蛋
-24 9 * 10-11 * node /scripts/jd_lucky_egg.js >> /scripts/logs/jd_lucky_egg.log 2>&1
 # 东东世界兑换
 0 0 * * * node /scripts/jd_ddworld_exchange.js >> /scripts/logs/jd_ddworld_exchange.log 2>&1
 # 天天提鹅
@@ -207,8 +199,6 @@
 41 23 * * * node /scripts/jd_price.js >> /scripts/logs/jd_price.log 2>&1
 #京东小魔方--收集兑换
 10 7 * * * node /scripts/jd_mofang_ex.js >> /scripts/logs/jd_mofang_ex.log 2>&1
-#骁龙
-10 9,17 * * * node /scripts/jd_xiaolong.js >> /scripts/logs/jd_xiaolong.log 2>&1
 #京东我的理想家
 10 7 * * * node /scripts/jd_lxLottery.js >> /scripts/logs/jd_lxLottery.log 2>&1
 #见缝插针
@@ -219,14 +209,26 @@
 10 2,19 * * * node /scripts/jx_sign_xd.js >> /scripts/logs/jx_sign_xd.log 2>&1
 # 京东答题领金豆
 22 6,18 * * * node /scripts/jx_jddt.js >> /scripts/logs/jx_jddt.log 2>&1
-# 写情书抽京豆
-1 1,14 12-25 12 * node /scripts/jd_xqscjd.js >> /scripts/logs/jd_xqscjd.log 2>&1
 # 京东评价
 37 15 * * * node /scripts/jd_evaluation.js >> /scripts/logs/jd_evaluation.log 2>&1
 # 京东通天塔--签到
 31 8,21 * * * node /scripts/jd_m_sign.js >> /scripts/logs/jd_m_sign.log 2>&1
 # 年货节签到
 23 2,22 * * * node /scripts/jd_nh_sign.js >> /scripts/logs/jd_nh_sign.log 2>&1
+# 把智能生活带给TA
+10 4,19 * * * node /scripts/jd_bzlshdgt.js >> /scripts/logs/jd_bzlshdgt.log 2>&1
+# 超级无线店铺签到
+0 0 * * * node /scripts/jd_sevenDay.js >> /scripts/logs/jd_sevenDay.log 2>&1
+# 城城分现金
+0 0-23/1 * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
+# 加购物车抽奖
+45 4 * * * node /scripts/jd_wxCollectionActivity.js >> /scripts/logs/jd_wxCollectionActivity.log 2>&1
+# 关注店铺抽奖
+13 5 * * * node /scripts/jd_wxShopFollowActivity.js >> /scripts/logs/jd_wxShopFollowActivity.log 2>&1
+# 运动户外盲盒活动
+5 10,20 3-5 1 * node /scripts/jd_UnknownTask5.js >> /scripts/logs/jd_UnknownTask5.log 2>&1
+# tw
+23 11,20 * * * node /scripts/jd_tw.js >> /scripts/logs/jd_tw.log 2>&1
 #京东签到图形验证
 14 2,10 * * * node /scripts/jd_sign_graphics.js >> /scripts/logs/jd_sign_graphics.log 2>&1
 #京豆兑换为喜豆
