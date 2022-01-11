@@ -229,6 +229,18 @@
 5 10,20 3-5 1 * node /scripts/jd_UnknownTask5.js >> /scripts/logs/jd_UnknownTask5.log 2>&1
 # tw
 23 11,20 * * * node /scripts/jd_tw.js >> /scripts/logs/jd_tw.log 2>&1
+# 京东超级盒子
+4 2,3,22 * * * node /scripts/jd_superbox.js >> /scripts/logs/jd_superbox.log 2>&1
+# 2022年年货节京享红包活动
+0 0,20,22 * * * node /scripts/jd_nh_red.js >> /scripts/logs/jd_nh_red.log 2>&1
+# 头文子J
+10 8,18 * * * node /scripts/jd_mpdzcar.js >> /scripts/logs/jd_mpdzcar.log 2>&1
+# 头文字J 游戏
+10 6,10,12 * * * node /scripts/jd_mpdzcar_game.js >> /scripts/logs/jd_mpdzcar_game.log 2>&1
+# 头文字J 助力
+10 3,19 * * * node /scripts/jd_mpdzcar_help.js >> /scripts/logs/jd_mpdzcar_help.log 2>&1
+# 炸年兽
+0 0-23/5 * * *  node /scripts/jd_zns.js >> /scripts/logs/jd_zns.log 2>&1
 #京东签到图形验证
 14 2,10 * * * node /scripts/jd_sign_graphics.js >> /scripts/logs/jd_sign_graphics.log 2>&1
 #京豆兑换为喜豆
