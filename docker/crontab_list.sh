@@ -217,12 +217,12 @@
 27 7,18 * * * node /scripts/jd_festival.js >> /scripts/logs/jd_festival.log 2>&1
 # 超级无线店铺签到
 0 0 * * * node /scripts/jd_sevenDay.js >> /scripts/logs/jd_sevenDay.log 2>&1
+# 魔方
+20 4,19 * * * node /scripts/jd_mofang.js >> /scripts/logs/jd_mofang.log 2>&1
 # 加购物车抽奖
 45 4 * * * node /scripts/jd_wxCollectionActivity.js >> /scripts/logs/jd_wxCollectionActivity.log 2>&1
 # 关注店铺抽奖
 13 5 * * * node /scripts/jd_wxShopFollowActivity.js >> /scripts/logs/jd_wxShopFollowActivity.log 2>&1
-# 运动户外盲盒活动
-5 10,20 3-5 1 * node /scripts/jd_UnknownTask5.js >> /scripts/logs/jd_UnknownTask5.log 2>&1
 # tw
 23 11,20 * * * node /scripts/jd_tw.js >> /scripts/logs/jd_tw.log 2>&1
 # 天天压岁钱
@@ -237,8 +237,8 @@
 0 0,3 * * * node /scripts/jd_babel_sign.js >> /scripts/logs/jd_babel_sign.log 2>&1
 # 京东超级盒子
 4 2,3,22 * * * node /scripts/jd_superbox.js >> /scripts/logs/jd_superbox.log 2>&1
-# 2022年年货节京享红包活动
-0 0,20,22 * * * node /scripts/jd_nh_red.js >> /scripts/logs/jd_nh_red.log 2>&1
+# 京喜领88元红包
+4 0,1 * * * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
 # 头文子J
 10 8,18 * * * node /scripts/jd_mpdzcar.js >> /scripts/logs/jd_mpdzcar.log 2>&1
 # 头文字J 游戏
